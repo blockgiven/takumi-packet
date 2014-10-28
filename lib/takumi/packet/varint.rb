@@ -6,6 +6,7 @@ module Takumi
           int = 0
           source.chars.each.with_index(1) do |char, index|
             byte = char.ord
+            int <<= 7
             int += byte & 0b111_1111
 
             return int, index if (byte & 0b1000_0000).zero?
